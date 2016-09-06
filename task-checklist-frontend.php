@@ -24,6 +24,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Task checklist - frontend.  If not, see <https://www.gnu.org/licenses/gpl-3.0.html>.
 */
+require_once('markup/print-markup.php');
 
 class TaskChecklistFrontend {
   public function __construct() {
@@ -32,6 +33,8 @@ class TaskChecklistFrontend {
 
   public function register_hooks() {
     $this->add_custom_post_type();
+    add_action( 'wp_enqueue_scripts', array($this, 'enqueue_css') );
+    add_action( 'wp_enqueue_scripts', array($this, 'enqueue_script') );
     register_activation_hook(__FILE__, array($this, 'perform_installation') );
     register_deactivation_hook( __FILE__, array($this, 'deactivate') );
     add_shortcode('tcf_task', array($this, 'display_task'));
@@ -49,9 +52,22 @@ class TaskChecklistFrontend {
     flush_rewrite_rules();
   }
 
+  public function enqueue_css() {
+    wp_enqueue_style( 'tcf-css', plugins_url( '/css/tcfstyle.css', __FILE__ ) );
+  }
+
+  public function enqueue_script() {
+    wp_enqueue_script( 'tcf-js', plugins_url( 'javascript/tcfscripts.js', __FILE__ ) );
+  }
+
   public function display_task($attributes) {
-    $posts_array = get_posts(
-    array(
+    $posts = $this->get_posts_from_shortcode_attributes($attributes);
+    $printer = new TCFPrintMarkup();
+    return $printer->create_tasklist_markup($posts);
+  }
+
+  private function get_posts_from_shortcode_attributes($attributes) {
+    $posts_array = get_posts(array(
         'posts_per_page' => -1,
         'post_type' => 'tcf_task',
         'post_status' => 'publish',
@@ -59,18 +75,10 @@ class TaskChecklistFrontend {
             array(
                 'taxonomy' => 'tcf_category',
                 'field' => 'term_id',
-                'terms' => 27,
-            )
-        )
-      )
-    );
-    $html = "";
-    foreach ($posts_array as $key => $post) {
-      $html .= '<div class="tcf-task">' . $post->post_title . '</div>';
+                'terms' => $attributes['categoryid'],
+            ))));
+            return $posts_array;
     }
-    return $html;
-    //return "<pre>" . print_r($posts_array, true) . "</pre>";
-  }
 }
 
 $taskChecklistPlugin = new TaskChecklistFrontend();
