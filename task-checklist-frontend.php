@@ -71,6 +71,8 @@ class TaskChecklistFrontend {
         'posts_per_page' => -1,
         'post_type' => 'tcf_task',
         'post_status' => 'publish',
+        'orderby' => 'title',
+        'order' => 'ASC',
         'tax_query' => array(
             array(
                 'taxonomy' => 'tcf_category',
