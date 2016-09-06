@@ -8,7 +8,7 @@ function tcf_setup_post_type() {
             'singular_name'      => __('Task'),
             'add_new'            => __('Add new'),
             'add_new_item'       => __('Add new task'),
-            'edit_item'          => __( 'Redigera spartips' ),
+            'edit_item'          => __( 'Edit task' ),
             'new_item'           => __( 'New task' ),
             'all_items'          => __( 'All tasks' ),
             'view_item'          => __( 'View task' ),
