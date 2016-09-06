@@ -19,7 +19,7 @@
      $html = '<div class="tcf-wrap">';
      foreach ($posts as $key => $post) {
        $html .= '<div class="tcf-task">';
-       $html .= '<div class="tcf-btn"><i class="fa fa-check" aria-hidden="true"></i>';
+       $html .= '<div class="tcf-btn" id="task-' . $post->ID . '"><i class="fa fa-check" aria-hidden="true"></i>';
        $html .= '</div>';
        $html .= '<h2>' . $post->post_title . '</h2>';
        $html .= '<p>' . $post->post_content . '</p>';

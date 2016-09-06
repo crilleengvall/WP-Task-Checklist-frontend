@@ -57,6 +57,7 @@ class TaskChecklistFrontend {
   }
 
   public function enqueue_script() {
+    wp_enqueue_script( 'js-cookie', plugins_url( 'javascript/js.cookie.js', __FILE__ ) );
     wp_enqueue_script( 'tcf-js', plugins_url( 'javascript/tcfscripts.js', __FILE__ ) );
   }
 
