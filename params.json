@@ -1,0 +1,6 @@
+{
+  "name": "Wp-task-checklist-frontend",
+  "tagline": "Wordpress plugin. Adds custom post type task. Displays tasks for visitors as checkboxes and checklists. Saves status of task in cookie.",
+  "body": "# WP-Task-Checklist-frontend\r\nWordpress plugin. Adds custom post type task. Displays tasks for visitors as checkboxes and checklists. Saves status of task in cookie.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
