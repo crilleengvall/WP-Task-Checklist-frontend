@@ -1,7 +1,7 @@
 <?php
 /*
 * Plugin Name: Task checklist - frontend
-* Plugin URI: http://www.christianengvall.se
+* Plugin URI: https://crilleengvall.github.io/WP-Task-Checklist-frontend/
 * Description: Adds custom post type task. Displays tasks for visitors as checkboxes and checklists. Saves status of task in cookie.
 * Version: 0.1
 * Author: Christian Engvall
