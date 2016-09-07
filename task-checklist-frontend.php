@@ -54,6 +54,7 @@ class TaskChecklistFrontend {
 
   public function enqueue_css() {
     wp_enqueue_style( 'tcf-css', plugins_url( '/css/tcfstyle.css', __FILE__ ) );
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
   }
 
   public function enqueue_script() {
