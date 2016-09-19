@@ -48,6 +48,10 @@
   opacity: 0.05;
 }
 
+.tcf-btn i:hover {
+  opacity: 0.5;
+}
+
 .tcf-active i {
-  opacity: 1;
+  opacity: 1 !important;
 }
