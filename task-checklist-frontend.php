@@ -38,6 +38,11 @@ class TaskChecklistFrontend {
     register_activation_hook(__FILE__, array($this, 'perform_installation') );
     register_deactivation_hook( __FILE__, array($this, 'deactivate') );
     add_shortcode('tcf_task', array($this, 'display_task'));
+    add_action( 'plugins_loaded', array($this, 'load_plugin_textdomain') );
+  }
+
+  public function load_plugin_textdomain() {
+    load_plugin_textdomain( 'task-checklist-frontend', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
   }
 
   public function perform_installation() {

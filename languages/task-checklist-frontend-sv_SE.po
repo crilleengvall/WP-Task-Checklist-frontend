@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: task-checklist-frontend\n"
+"POT-Creation-Date: 2016-09-19 17:14+0200\n"
+"PO-Revision-Date: 2016-09-19 17:32+0200\n"
+"Last-Translator: Christian Engvall <crilleengvall@gmail.com>\n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: custom-post-types\n"
+
+#: custom-post-types/task-custom-post-type.php:7
+msgid "Tasks"
+msgstr "Uppgifter"
+
+#: custom-post-types/task-custom-post-type.php:8
+msgid "Task"
+msgstr "Uppgift"
+
+#: custom-post-types/task-custom-post-type.php:9
+msgid "Add new"
+msgstr "Lägg till ny"
+
+#: custom-post-types/task-custom-post-type.php:10
+msgid "Add new task"
+msgstr "Lägg till ny uppgift"
+
+#: custom-post-types/task-custom-post-type.php:11
+msgid "Edit task"
+msgstr "Redigera uppgift"
+
+#: custom-post-types/task-custom-post-type.php:12
+msgid "New task"
+msgstr "Ny uppgift"
+
+#: custom-post-types/task-custom-post-type.php:13
+msgid "All tasks"
+msgstr "Alla uppgifter"
+
+#: custom-post-types/task-custom-post-type.php:14
+msgid "View task"
+msgstr "Visa uppgift"
+
+#: custom-post-types/task-custom-post-type.php:15
+msgid "Search for task"
+msgstr "Sök efter uppgift"
+
+#: custom-post-types/task-custom-post-type.php:16
+msgid "No tasks found"
+msgstr "Kunde inte hitta några uppgifter"
+
+#: custom-post-types/task-custom-post-type.php:17
+msgid "No tasks in trash"
+msgstr "Inga uppgifter i papperskorgen"
+
+#: custom-post-types/task-custom-post-type.php:35
+msgid "Search task category"
+msgstr "Sök efter uppgift-kategori"
+
+#: custom-post-types/task-custom-post-type.php:36
+msgid "All task categories"
+msgstr "Alla uppgiftskategorier"
+
+#: custom-post-types/task-custom-post-type.php:37
+msgid "Edit task category"
+msgstr "Redigera uppgifts-kategori"
+
+#: custom-post-types/task-custom-post-type.php:38
+msgid "Update task category"
+msgstr "Uppdatera uppgifts-kategori"
+
+#: custom-post-types/task-custom-post-type.php:39
+msgid "Add task category"
+msgstr "Lägg till ny uppgifts-kategori"
+
+#: custom-post-types/task-custom-post-type.php:40
+msgid "New task category"
+msgstr "Ny uppgifts-kategori"
+
+#: custom-post-types/task-custom-post-type.php:41
+msgid "Task category"
+msgstr "Uppgifts-kategori"
