@@ -39,6 +39,7 @@ class TaskChecklistFrontend {
     register_deactivation_hook( __FILE__, array($this, 'deactivate') );
     add_shortcode('tcf_task', array($this, 'display_task'));
     add_action( 'plugins_loaded', array($this, 'load_plugin_textdomain') );
+    add_action('admin_init', array($this, 'setup_tiny_mce_plugin'));
   }
 
   public function load_plugin_textdomain() {
@@ -65,6 +66,39 @@ class TaskChecklistFrontend {
   public function enqueue_script() {
     wp_enqueue_script( 'js-cookie', plugins_url( 'javascript/js.cookie.js', __FILE__ ) );
     wp_enqueue_script( 'tcf-js', plugins_url( 'javascript/tcfscripts.js', __FILE__ ) );
+  }
+
+  public function setup_tiny_mce_plugin() {
+    if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+        add_filter( 'mce_buttons', array( $this, 'register_tinymce_button' ) );
+        add_filter( 'mce_external_plugins', array( $this, 'add_tinymce_button' ) );
+        add_filter( 'tiny_mce_before_init', array( $this, 'add_tinymce_task_categories' ) );
+    }
+  }
+
+  public function add_tinymce_task_categories( $settings ) {
+    $terms = get_terms( array(
+        'taxonomy' => 'tcf_category',
+        'hide_empty' => true,
+        'orderby' => 'name',
+        'order' => 'ASC'
+    ));
+    $settings_terms =  array();
+    foreach ($terms as $key => $term) {
+      array_push($settings_terms, $term->term_id . ':' . $term->name);
+    }
+    $settings['tcf_categories'] = implode(",", $settings_terms);
+    return $settings;
+  }
+
+  public function register_tinymce_button( $buttons ) {
+   array_push( $buttons, "button_task_checklist" );
+   return $buttons;
+  }
+
+  function add_tinymce_button( $plugin_array ) {
+     $plugin_array['task_checklist_script'] = plugins_url( '/editor/editor_plugin.js', __FILE__ ) ;
+     return $plugin_array;
   }
 
   public function display_task($attributes) {
